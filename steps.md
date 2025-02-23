@@ -61,8 +61,17 @@ docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgre
     CREATE INDEX idx_subscription_event ON tbl_subscription(event_id);
 ```
 
-
-
-
-
+# Example Request Body Event
+```json
+{
+    "title": "Event 1",
+    "pretty_name": "event1",
+    "location": "Location 1",
+    "price": 100.00,
+    "start_date": "2021-10-01",
+    "end_date": "2021-10-02",
+    "start_time": "10:00:00",
+    "end_time": "12:00:00"
+}
+```
 
