@@ -1,5 +1,6 @@
 package com.example._devs.events.controller;
 
+import com.example._devs.events.exception.EventNotFoundException;
 import com.example._devs.events.model.Event;
 import com.example._devs.events.service.EventService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,24 +18,24 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @PostMapping("/events")
+    @PostMapping("/")
     public Event addNewEvent(@RequestBody Event event){
         return eventService.addNewEvent(event);
     }
 
-    @GetMapping("/events")
+    @GetMapping("/")
     public List<Event> getAllElements(){
         return eventService.getAllEvents();
     }
 
-    @GetMapping("/events/{prettyName}")
+    @GetMapping("/{prettyName}")
     public ResponseEntity<Event> getEventByPrettyName(@PathVariable String prettyName){
         Event event = eventService.getByPrettyName(prettyName);
         if(event !=null){
             return ResponseEntity.ok().body(event);
         }
-        return ResponseEntity.notFound().build();
+//        return ResponseEntity.notFound().build();
+        throw new EventNotFoundException("Event not found");
+
     }
-
-
 }
