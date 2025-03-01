@@ -30,6 +30,7 @@ O projeto consiste em uma API para gerenciar eventos e gerar rankings de partici
 - [x] Lançamento de exceções customizadas
 - [ ] Testes unitários
 - [x] Documentação no Swagger
+- [ ] Usar DDD
 
 <hr>
 <br>
